@@ -1,0 +1,56 @@
+
+
+.enter{
+    .login{
+        margin: 0 auto;
+        margin-top: 30px;
+        display: block;
+        width: 50%;
+        height: 50px;
+        font-size: 25px;
+    
+    }
+    .password{
+      @extend .login;
+    }
+    .submit{
+        display: block;
+        margin: 0 auto;
+        margin-top: 35px;
+        width: 12%;
+        height: 50px;
+        border-radius: 50px;
+        font-size: 20px;
+        color: #1F7BB5;
+    
+        .arrow{
+            margin-left: 10px;
+        }
+
+    }
+
+
+        @keyframes preloader {
+            to { transform: rotate(360deg); }
+        }
+        
+
+    .waiting{
+        display: block;
+        margin: 0 auto;
+        margin-top: 35px;
+        width: 12%;
+        border-radius: 50px;
+        font-size: 20px;
+        color: #1F7BB5;
+        animation: none;
+
+        .cog{
+            animation: preloader 1.5s infinite linear;
+            
+        }
+        
+
+       
+    }
+}
