@@ -1,6 +1,6 @@
 I created simple server on Node.js using MongoDB as database. There are some API's which are working with data required for logging in.
 
-There are test user: 
+There is the test user: 
 {
 'login': 'test',
 password: '123'
