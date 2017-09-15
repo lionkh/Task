@@ -24,7 +24,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('/users', (req, res) => {
+/* app.get('/users', (req, res) => {
   db.collection('users').find().toArray((err,docs)=>{
     if(err){
         console.log(err);
@@ -33,17 +33,29 @@ app.get('/users', (req, res) => {
 
       res.send(docs);
   })
-});
+}); */
 
 app.post('/login', (req, res) => {
+
   
   var user = {
     login: req.body.login,
-    password: req.body.password,
-    name: req.body.name
+    password: req.body.password
   };
 
-  db.collection('users').findOne({login: req.body.login, password: req.body.password}, function(err, doc){
+
+  if(user.login == 'foo' && user.password == 'bar'){
+    res.send({'Auth':'Denied'});
+   
+  }
+
+  else{
+    res.send({'Auth':'Logged', 'Language':'EN'});
+  }
+
+
+
+ /*  db.collection('users').findOne({login: req.body.login, password: req.body.password}, function(err, doc){
     if(err){
     return res.sendStatus(500);
     }
@@ -56,25 +68,25 @@ app.post('/login', (req, res) => {
      //return res.sendStatus(200);
      res.send({'Auth':'Logged', 'Language':'EN'});
     }
-  })
+  }) */
 });
 
 
-app.post('/registrate', (req, res) => {
+/* app.post('/registrate', (req, res) => {
 
   var user = {
     login: req.body.login,
     password: req.body.password,
   };
 
-  db.collection('users').insert(user, function(err, result){ //попробовать через then data=>{}
+  db.collection('users').insert(user, function(err, result){ 
     if(err){
       console.log(err);
       return res.sendStatus(500);
     }
-    res.send(user); //id вставится автоматически */
+    res.send(user);
  });
-});
+}); */
 
 
 app.get('*', function(req, res) {
@@ -82,21 +94,21 @@ app.get('*', function(req, res) {
 }); 
 
 
-MongoClient.connect('mongodb://localhost:27017/myDB', function(err, database){
+/* MongoClient.connect('mongodb://localhost:27017/myDB', function(err, database){
   if(err){
     return console.log(err);
   }
 
   db = database;
 
-  app.listen(3000, function(err) {
+
+
+}); */
+
+app.listen(3000, function(err) {
   if (err) {
     return console.error(err);
   }
 
   console.log('Listening at http://localhost:3000/');
 });
-
-});
-
-

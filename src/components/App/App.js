@@ -11,13 +11,13 @@ export default class App extends Component{
     render() {
     return (
       <div>
-      <Router history={browserHistory}>
-      <div>
-       <Route exact path = '/' component = {LoginForm} />
-       <Route exact path = '/authentification' component = {Authentification} />
-       <Route exact path = '/success' component = {Success} />
-       </div>
-      </Router>
+        <Router history={browserHistory}>
+          <div>
+            <Route exact path = '/' component = {LoginForm} />
+            <Route exact path = '/authentification' component = {Authentification} />
+            <Route exact path = '/success' component = {Success} />
+          </div>
+        </Router>
       </div>
 
     );

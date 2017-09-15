@@ -17,7 +17,7 @@ export default function getToSystem(user) {
                             .then(data => {
                                 if(data.Auth == 'Denied'){
                                     document.querySelector('.login').style.border = '2px solid #F67A7D';
-                                    console.log('Такого пользователя нет в системе!');
+                                    console.log('Incorrect user!');
                                 }
                                 if(data.Auth == 'Logged'){
                                     dispatch(createAccount(user)); 
